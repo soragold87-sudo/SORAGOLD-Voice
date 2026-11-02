@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090a0c"><title>SORA — A voice to keep</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:28px 18px;color:#eee;background:radial-gradient(ellipse at 50% 20%,#24272b 0%,#111316 38%,#08090b 78%);font-family:Georgia,serif}
+main{width:min(100%,390px);text-align:center}.brand{letter-spacing:.34em;font:500 25px Arial,sans-serif;color:#e6e7e8}.rule{width:42px;height:1px;margin:22px auto 28px;background:#92979d}
+.eyebrow{color:#9ea3a9;font:10px Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase}h1{margin:14px 0 10px;font-size:clamp(27px,8vw,34px);font-weight:400}
+.sub{margin:0 auto;max-width:270px;color:#aeb2b7;font:13px/1.8 Arial,sans-serif}.wave{display:flex;align-items:center;justify-content:center;gap:3px;height:76px;margin:36px 0 25px}
+.wave i{display:block;width:2px;border-radius:3px;background:linear-gradient(#f1f2f3,#777e85);opacity:.82}
+.wave i:nth-child(7n+1){height:15px}.wave i:nth-child(7n+2){height:29px}.wave i:nth-child(7n+3){height:43px}.wave i:nth-child(7n+4){height:23px}.wave i:nth-child(7n+5){height:55px}.wave i:nth-child(7n+6){height:34px}.wave i:nth-child(7n){height:18px}
+button{border:1px solid #858b91;border-radius:999px;width:68px;height:68px;background:linear-gradient(145deg,#f1f2f3,#aeb3b8);color:#101214;font-size:24px;cursor:pointer;box-shadow:0 8px 30px #0008}
+.hint{margin-top:15px;color:#969ca2;font:11px Arial,sans-serif;letter-spacing:.08em}audio{display:none}footer{margin-top:56px;color:#737980;font:9px Arial,sans-serif;letter-spacing:.22em}.error{min-height:18px;margin-top:12px;color:#d3a9a9;font:11px Arial,sans-serif}
+</style></head>
+<body><main>
+<div class="brand">SORA</div><div class="rule"></div><div class="eyebrow">A voice to keep</div>
+<h1>A Moment, Forever.</h1><p class="sub">Some voices deserve to stay close.</p>
+<div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<button id="play" type="button" aria-label="Play voice">▶</button><div class="hint" id="hint">TAP TO LISTEN</div><div class="error" id="error" role="status"></div>
+<audio id="audio" preload="none"><source src="https://drive.google.com/uc?export=download&amp;id=1MLW-l9OQ_so0iry4f-oeBMtdHIVptMCq" type="audio/mpeg"></audio>
+<footer>MADE TO KEEP A MOMENT · SORA</footer>
+</main>
+<script>
+const a=document.getElementById('audio'),b=document.getElementById('play'),h=document.getElementById('hint'),e=document.getElementById('error');
+b.addEventListener('click',async()=>{e.textContent='';if(a.paused){try{await a.play();b.textContent='Ⅱ';h.textContent='NOW PLAYING'}catch(_){e.textContent='The test audio could not play from this link. We will adjust the audio source.'}}else{a.pause();b.textContent='▶';h.textContent='TAP TO LISTEN'}});
+a.addEventListener('ended',()=>{b.textContent='▶';h.textContent='TAP TO LISTEN'});
+a.addEventListener('pause',()=>{if(!a.ended){b.textContent='▶';h.textContent='TAP TO LISTEN'}});
+</script></body></html>
