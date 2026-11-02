@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,56 +6,162 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Moment, Forever. | SORA</title>
 <style>
-*{box-sizing:border-box}
-body{
-margin:0;min-height:100vh;display:flex;align-items:center;
-justify-content:center;background:radial-gradient(circle at center,#292929,#080808 72%);
-color:#e9e5df;font-family:Georgia,serif;padding:24px
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: radial-gradient(circle, #292929, #080808 72%);
+  color: #e9e5df;
+  font-family: Georgia, serif;
 }
-.card{
-width:100%;max-width:420px;text-align:center;
-border:1px solid #8d806b;padding:52px 25px;
-background:linear-gradient(145deg,#191919,#080808);
-box-shadow:0 15px 55px #000
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 52px 25px;
+  text-align: center;
+  border: 1px solid #8d806b;
+  background: linear-gradient(145deg, #191919, #080808);
+  box-shadow: 0 15px 55px #000;
 }
-.brand{font-size:13px;letter-spacing:8px;color:#c5b79d}
-h1{font-size:36px;font-weight:normal;margin:45px 0 14px}
-.subtitle{font-size:15px;color:#aaa;font-style:italic}
-.wave{height:65px;margin:35px auto;display:flex;align-items:center;justify-content:center;gap:4px}
-.wave span{width:3px;background:#b8a98e;border-radius:4px}
-button{background:transparent;border:1px solid #b8a98e;color:#e9e5df;padding:13px 35px;letter-spacing:3px;font-size:11px;cursor:pointer}
-button:active{background:#393329}
-#message{font:12px Arial;color:#c5b79d;margin-top:18px}
-footer{font:9px Arial;letter-spacing:3px;color:#777;margin-top:55px}
+
+.brand {
+  color: #c5b79d;
+  font-size: 13px;
+  letter-spacing: 8px;
+}
+
+h1 {
+  margin: 45px 0 14px;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.subtitle {
+  color: #aaa;
+  font-size: 15px;
+  font-style: italic;
+}
+
+.wave {
+  height: 65px;
+  margin: 35px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.wave span {
+  width: 3px;
+  border-radius: 4px;
+  background: #b8a98e;
+}
+
+button {
+  padding: 13px 35px;
+  border: 1px solid #b8a98e;
+  background: transparent;
+  color: #e9e5df;
+  font-size: 11px;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+#message {
+  min-height: 18px;
+  margin-top: 18px;
+  color: #c5b79d;
+  font: 12px Arial, sans-serif;
+}
+
+footer {
+  margin-top: 55px;
+  color: #777;
+  font: 9px Arial, sans-serif;
+  letter-spacing: 3px;
+}
 </style>
 </head>
+
 <body>
 <main class="card">
-<div class="brand">SORA</div>
-<h1>A Moment, Forever.</h1>
-<div class="subtitle">Some voices deserve to stay close.</div>
-<div class="wave">
-<span style="height:15px"></span><span style="height:28px"></span>
-<span style="height:42px"></span><span style="height:25px"></span>
-<span style="height:55px"></span><span style="height:32px"></span>
-<span style="height:46px"></span><span style="height:20px"></span>
-<span style="height:38px"></span><span style="height:58px"></span>
-<span style="height:30px"></span><span style="height:17px"></span>
-<span style="height:43px"></span><span style="height:25px"></span>
-</div>
-<audio id="audio" preload="metadata">
-<source src="Voice%20261103_002338%20TEST.m4a" type="audio/mp4">
-</audio>
-<button onclick="playVoice()">▶ &nbsp; PLAY</button>
-<div id="message"></div>
-<footer>MADE TO KEEP A MOMENT · SORA</footer>
+
+  <div class="brand">SORA</div>
+
+  <h1>A Moment, Forever.</h1>
+
+  <div class="subtitle">
+    Some voices deserve to stay close.
+  </div>
+
+  <div class="wave">
+    <span style="height:15px"></span>
+    <span style="height:28px"></span>
+    <span style="height:42px"></span>
+    <span style="height:25px"></span>
+    <span style="height:55px"></span>
+    <span style="height:32px"></span>
+    <span style="height:46px"></span>
+    <span style="height:20px"></span>
+    <span style="height:38px"></span>
+    <span style="height:58px"></span>
+    <span style="height:30px"></span>
+    <span style="height:17px"></span>
+    <span style="height:43px"></span>
+    <span style="height:25px"></span>
+  </div>
+
+  <audio id="audio" preload="none">
+    <source
+      src="./Voice%20261103_002338%20TEST.m4a"
+      type="audio/mp4">
+  </audio>
+
+  <button id="playButton" type="button">
+    ▶ &nbsp; PLAY
+  </button>
+
+  <div id="message"></div>
+
+  <footer>MADE TO KEEP A MOMENT · SORA</footer>
+
 </main>
+
 <script>
-function playVoice(){
-const audio=document.getElementById('audio');
-const message=document.getElementById('message');
-audio.play().then(()=>message.textContent="").catch(()=>message.textContent="The audio could not be played. Please try again.");
-}
+const audio = document.getElementById("audio");
+const button = document.getElementById("playButton");
+const message = document.getElementById("message");
+
+button.addEventListener("click", async () => {
+  if (audio.paused) {
+    message.textContent = "Loading...";
+    try {
+      await audio.play();
+      message.textContent = "";
+      button.textContent = "Ⅱ  PAUSE";
+    } catch (error) {
+      message.textContent = "Unable to play audio. Please try again.";
+    }
+  } else {
+    audio.pause();
+    button.textContent = "▶  PLAY";
+  }
+});
+
+audio.addEventListener("ended", () => {
+  button.textContent = "▶  PLAY";
+});
+
+audio.addEventListener("error", () => {
+  message.textContent = "Audio file could not be loaded.";
+});
 </script>
+
 </body>
 </html>
